@@ -218,3 +218,12 @@ const sortByYear = () => {
 	});
 	loadBooks(sortedBooks);
 };
+
+// Sort books alphabetically
+const sortAlphabetically = () => {
+	document.getElementById("bookList").innerHTML = "";
+	const booksAlphabetically = books.sort((a, b) =>
+		a.title.localeCompare(b.title)
+	);
+	loadBooks(booksAlphabetically);
+};
