@@ -227,3 +227,23 @@ const sortAlphabetically = () => {
 	);
 	loadBooks(booksAlphabetically);
 };
+
+// Filer on the 21st century
+const filterOnCentury = () => {
+	document.getElementById("bookList").innerHTML = "";
+	const filteredBooks = books.filter((book) => book.year > 2000);
+	filteredBooks.length > 0
+		? loadBooks(filteredBooks)
+		: (document.getElementById("bookList").innerHTML =
+				"No books from the 21st century");
+};
+
+// Search input
+const searchBooks = (books) => {
+	document.getElementById("bookList").innerHTML = "";
+	const searchInput = document.getElementById("search").value.toLowerCase();
+	const searchResult = books.filter((book) =>
+		book.title.toLowerCase().includes(searchInput)
+	);
+	loadBooks(searchResult);
+};

@@ -9,17 +9,26 @@
 	<body onload="loadBooks(books)">
 		<h1>Elin's cool library</h1>
 		<div id="bookContainer">
+			<input
+				type="text"
+				id="search"
+				oninput="searchBooks(books)"
+				placeholder="search books"
+			/>
 			<ul id="bookList"></ul>
 			<div id="buttonContainer">
-				<input type="text" id="genre" />
+				<input type="text" id="genre" placeholder="type genre" />
 				<button id="filterButton" onclick="filterByGenre()" type="submit">
-					Filter by genre
-				</button>
+					Filter by genre</button
+				><br />
 				<button id="sortButton" onclick="sortByYear()">
-					Sort by release year
-				</button>
+					Sort by release year</button
+				><br />
 				<button id="alphabeticalButton" onclick="sortAlphabetically()">
-					Sort books alphabetically
+					Sort books alphabetically</button
+				><br />
+				<button id="alphabeticalButton" onclick="filterOnCentury()">
+					Filter books from the 21st century
 				</button>
 			</div>
 		</div>
