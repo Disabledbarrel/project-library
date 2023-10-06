@@ -200,10 +200,14 @@ const loadBooks = (books) => {
 // Filter by gengre
 const filterByGenre = () => {
 	document.getElementById("bookList").innerHTML = "";
+	const inputValue = document.getElementById("genre").value;
 	const filteredBooks = books.filter(
-		(book) => book.genre === "Science Fiction"
+		(book) => book.genre.toLowerCase() === inputValue.toLowerCase()
 	);
-	loadBooks(filteredBooks);
+	filteredBooks.length > 0
+		? loadBooks(filteredBooks)
+		: (document.getElementById("bookList").innerHTML =
+				"No books with that genre");
 };
 
 // Sort books by year
