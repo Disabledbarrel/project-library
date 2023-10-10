@@ -71,7 +71,7 @@ const books = [
 		rating: 4.7,
 		description:
 			"The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.",
-		image: "./books-images/harry-potter-and-the-sorcerer'.jpg",
+		image: "./books-images/harry-potter-and-the-sorcerer.jpg",
 	},
 	{
 		title: "Moby-Dick",
@@ -191,7 +191,18 @@ const loadBooks = (books) => {
 	const fragList = document.createDocumentFragment();
 	books.forEach((book) => {
 		const li = document.createElement("li");
-		li.textContent = `${book.title}, year of release: ${book.year}`;
+		li.innerHTML += `
+			<div>
+				<h2>
+					${book.title} ${book.year}
+				</h2>
+				<img src=${book.image} />
+				<p>${book.author}</p>
+				<p>${book.description}</p>
+				<p>Rating: ${book.rating}</p>
+				<p>${book.genre}</p>
+			</div>
+		`;
 		fragList.appendChild(li);
 	});
 	bookList.appendChild(fragList);
