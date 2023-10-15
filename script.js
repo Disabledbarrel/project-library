@@ -194,13 +194,14 @@ const loadBooks = (books) => {
 		li.innerHTML += `
 			<div>
 				<h2>
-					${book.title} ${book.year}
+					Title: ${book.title}
 				</h2>
 				<img src=${book.image} />
-				<p>${book.author}</p>
-				<p>${book.description}</p>
+				<p>Author: ${book.author}</p>
+				<p>Description: ${book.description}</p>
+				<p>Year of release: ${book.year}</p>
 				<p>Rating: ${book.rating}</p>
-				<p>${book.genre}</p>
+				<p>Genre: ${book.genre}</p>
 			</div>
 		`;
 		fragList.appendChild(li);
@@ -221,11 +222,19 @@ const filterByGenre = () => {
 				"No books with that genre");
 };
 
-// Sort books by year
-const sortByYear = () => {
+// Sort books by year oldest
+const sortByYearOldest = () => {
 	document.getElementById("bookList").innerHTML = "";
 	const sortedBooks = books.sort((a, b) => {
 		return a.year - b.year;
+	});
+	loadBooks(sortedBooks);
+};
+// Sort books by year Newest
+const sortByYearNewest = () => {
+	document.getElementById("bookList").innerHTML = "";
+	const sortedBooks = books.sort((a, b) => {
+		return b.year - a.year;
 	});
 	loadBooks(sortedBooks);
 };

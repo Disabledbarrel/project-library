@@ -8,29 +8,38 @@
 	</head>
 	<body onload="loadBooks(books)">
 		<h1>Elin's cool library</h1>
+		<div id="genreContainer">
+			<input
+				type="text"
+				id="genre"
+				placeholder="type genre and click filter by genre"
+			/>
+			<button id="filterButton" onclick="filterByGenre()" type="submit">
+				Filter by genre
+			</button>
+		</div>
+		<div id="buttonContainer">
+			<button id="sortButton" onclick="sortByYearOldest()">
+				Sort by oldest release year
+			</button>
+			<button id="sortButton" onclick="sortByYearNewest()">
+				Sort by newest release year
+			</button>
+			<button id="alphabeticalButton" onclick="sortAlphabetically()">
+				Sort books alphabetically
+			</button>
+			<button id="alphabeticalButton" onclick="filterOnCentury()">
+				Filter books from the 21st century
+			</button>
+		</div>
 		<div id="bookContainer">
 			<input
 				type="text"
 				id="search"
 				oninput="searchBooks(books)"
-				placeholder="search books"
+				placeholder="search books by title"
 			/>
 			<ul id="bookList"></ul>
-			<div id="buttonContainer">
-				<input type="text" id="genre" placeholder="type genre" />
-				<button id="filterButton" onclick="filterByGenre()" type="submit">
-					Filter by genre</button
-				><br />
-				<button id="sortButton" onclick="sortByYear()">
-					Sort by release year</button
-				><br />
-				<button id="alphabeticalButton" onclick="sortAlphabetically()">
-					Sort books alphabetically</button
-				><br />
-				<button id="alphabeticalButton" onclick="filterOnCentury()">
-					Filter books from the 21st century
-				</button>
-			</div>
 		</div>
 		<script src="./script.js"></script>
 	</body>
