@@ -210,17 +210,20 @@ const loadBooks = (books) => {
 };
 
 // Filter by gengre
-const filterByGenre = () => {
+const genres = document.getElementById("genres");
+function filterByGenre() {
 	document.getElementById("bookList").innerHTML = "";
-	const inputValue = document.getElementById("genre").value;
+	const value = genres.value;
+	const text = genres.options[genres.selectedIndex].text;
+
 	const filteredBooks = books.filter(
-		(book) => book.genre.toLowerCase() === inputValue.toLowerCase()
+		(book) => book.genre.toLowerCase() === value
 	);
-	filteredBooks.length > 0
-		? loadBooks(filteredBooks)
-		: (document.getElementById("bookList").innerHTML =
-				"No books with that genre");
-};
+
+	filteredBooks.length > 0 ? loadBooks(filteredBooks) : loadBooks(books);
+}
+genres.onchange = filterByGenre;
+filterByGenre();
 
 // Sort books by year oldest
 const sortByYearOldest = () => {

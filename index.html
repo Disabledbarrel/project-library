@@ -8,16 +8,19 @@
 	</head>
 	<body onload="loadBooks(books)">
 		<h1>Elin's cool library</h1>
-		<div id="genreContainer">
-			<input
-				type="text"
-				id="genre"
-				placeholder="type genre and click filter by genre"
-			/>
-			<button id="filterButton" onclick="filterByGenre()" type="submit">
-				Filter by genre
-			</button>
-		</div>
+		<form action="" id="genreContainer">
+			<label for="genres">Filter on genre</label>
+			<select name="genres" id="genres">
+				<option label=" "></option>
+				<option value="adventure">Adventure</option>
+				<option value="dystopian">Dystopian</option>
+				<option value="fantasy">Fantasy</option>
+				<option value="fiction">Fiction</option>
+				<option value="horror">Horror</option>
+				<option value="mystery">Mystery</option>
+				<option value="science fiction">Science Fiction</option>
+			</select>
+		</form>
 		<div id="buttonContainer">
 			<button id="sortButton" onclick="sortByYearOldest()">
 				Sort by oldest release year
